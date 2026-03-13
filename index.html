@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echohaus AI — KI-Rezeption für Ihr Unternehmen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ─── Loader ─────────────────────────────────────────── -->
+  <div id="loader">
+    <div class="loader-brand">ECHOHAUS AI</div>
+    <div class="loader-track"><div id="loader-bar"></div></div>
+    <div id="loader-percent">0%</div>
+  </div>
+
+  <!-- ─── Fixed Navigation ───────────────────────────────── -->
+  <header class="site-header">
+    <div class="nav-logo">ECHOHAUS AI</div>
+    <nav class="nav-links">
+      <a href="javascript:void(0)" data-scroll="slide4">Leistungen</a>
+      <a href="javascript:void(0)" data-scroll="slide6">Demo</a>
+      <a href="javascript:void(0)" data-scroll="slide7">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- ─── Hero Section (100vh, standalone) ──────────────── -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">KI-Rezeptionist</p>
+      <h1 class="hero-heading">
+        <span class="hero-line">
+          <span class="word">Ihr</span> <span class="word">Empfang</span> <span class="word">ist</span>
+        </span>
+        <span class="hero-line">
+          <span class="word">ausgelastet.</span>
+        </span>
+      </h1>
+      <p class="hero-tagline">Verpasste Anrufe kosten echtes Geld.</p>
+      <a href="#" class="btn-primary">Jetzt Kontakt aufnehmen →</a>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-label">Scrollen</span>
+      <div class="scroll-arrow-wrap">
+        <svg viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10" y1="2" x2="10" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M3 16l7 8 7-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Canvas (fixed, full viewport) ─────────────────── -->
+  <div id="canvas-wrap">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- ─── Scroll Container (400vh) ──────────────────────── -->
+  <div id="scroll-container">
+
+    <!-- Slide 2: Kennen Sie das? — 2 left : 2 right -->
+    <section class="scroll-section"
+             data-enter="0" data-leave="38" data-animation="clip-reveal">
+      <div class="slide-header">
+        <h2 class="section-heading">Kennen Sie das?</h2>
+      </div>
+      <div class="slide-body">
+
+        <div class="slide-col slide-col-left">
+          <div class="cards-stack">
+
+            <div class="notif-card">
+              <div class="notif-header">
+                <div class="notif-icon">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.01 21 3 13.99 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.21 2.2z"/></svg>
+                </div>
+                <div class="notif-meta">
+                  <span class="notif-app">Telefon</span>
+                  <span class="notif-time">Dienstag · 19:30 Uhr</span>
+                </div>
+                <span class="notif-tag missed">Verpasst</span>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">Verpasster Anruf</p>
+                <p class="notif-sub"><strong>Feierabend.</strong> Anrufer rief nie wieder zurück.</p>
+              </div>
+              <div class="notif-footer">
+                <span class="value-badge">Auftragswert: €650</span>
+              </div>
+            </div>
+
+            <div class="notif-card">
+              <div class="notif-header">
+                <div class="notif-icon">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.01 21 3 13.99 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.21 2.2z"/></svg>
+                </div>
+                <div class="notif-meta">
+                  <span class="notif-app">Telefon</span>
+                  <span class="notif-time">Freitag · 17:45 Uhr</span>
+                </div>
+                <span class="notif-tag missed">Verpasst</span>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">Verpasster Anruf</p>
+                <p class="notif-sub"><strong>Urlaubszeit.</strong> Auftrag längst vergeben.</p>
+              </div>
+              <div class="notif-footer">
+                <span class="value-badge">Auftragswert: €1.200</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="slide-col slide-col-right">
+          <div class="cards-stack">
+
+            <div class="notif-card">
+              <div class="notif-header">
+                <div class="notif-icon">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.01 21 3 13.99 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.21 2.2z"/></svg>
+                </div>
+                <div class="notif-meta">
+                  <span class="notif-app">Telefon</span>
+                  <span class="notif-time">Samstag · 11:00 Uhr</span>
+                </div>
+                <span class="notif-tag missed">Verpasst</span>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">Verpasster Anruf</p>
+                <p class="notif-sub"><strong>Wochenende.</strong> Neukunde weg.</p>
+              </div>
+              <div class="notif-footer">
+                <span class="value-badge">Auftragswert: €850</span>
+              </div>
+            </div>
+
+            <div class="notif-card">
+              <div class="notif-header">
+                <div class="notif-icon">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.01 21 3 13.99 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.21 2.2z"/></svg>
+                </div>
+                <div class="notif-meta">
+                  <span class="notif-app">Telefon</span>
+                  <span class="notif-time">Montag · 08:00 Uhr</span>
+                </div>
+                <span class="notif-tag missed">Verpasst</span>
+              </div>
+              <div class="notif-body">
+                <p class="notif-title">Verpasster Anruf</p>
+                <p class="notif-sub"><strong>Arbeitsbeginn.</strong> Telefonleitung belegt. Neukunde wartete nicht.</p>
+              </div>
+              <div class="notif-footer">
+                <span class="value-badge">Auftragswert: €780</span>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Slide 3: Zahlen — 3 stats left : loss-calc right -->
+    <section class="scroll-section"
+             data-enter="22" data-leave="68" data-animation="stagger-up">
+      <div class="slide-header">
+        <h2 class="section-heading">Zahlen, die Sie kennen sollten.</h2>
+      </div>
+      <div class="slide-body">
+
+        <div class="slide-col slide-col-left">
+          <div class="stats-list">
+            <div class="stat-row">
+              <div class="stat-numbox">
+                <span class="stat-number" data-value="62" data-decimals="0">0</span>
+                <span class="stat-suffix">%</span>
+              </div>
+              <p class="stat-desc">der Kunden wechseln nach dem <strong>ersten schlechten Kontakt</strong> direkt zum Wettbewerb.</p>
+            </div>
+            <div class="stat-row">
+              <div class="stat-numbox">
+                <span class="stat-number" data-value="85" data-decimals="0">0</span>
+                <span class="stat-suffix">%</span>
+              </div>
+              <p class="stat-desc">der Anrufer hinterlassen keine Nachricht — und <strong>rufen nie wieder an</strong>.</p>
+            </div>
+            <div class="stat-row">
+              <div class="stat-numbox">
+                <span class="stat-number" data-value="25" data-decimals="0">0</span>
+                <span class="stat-suffix">%</span>
+              </div>
+              <p class="stat-desc">aller eingehenden Anrufe <strong>gehen verloren</strong> — während der Öffnungszeiten.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col slide-col-right">
+          <div class="reach-visual">
+            <div class="reach-header">
+              <p class="reach-title">Erreichbarkeit im Vergleich</p>
+              <p class="reach-sub">Was Ihr Telefon gerade kostet — und was möglich wäre.</p>
+            </div>
+
+            <div class="reach-row">
+              <span class="reach-label">Ohne KI-Rezeption</span>
+              <div class="reach-bar-track">
+                <div class="reach-bar reach-bar--low"></div>
+              </div>
+              <span class="reach-pct reach-pct--low">40 %</span>
+            </div>
+
+            <div class="reach-row">
+              <span class="reach-label">Mit Echohaus AI</span>
+              <div class="reach-bar-track">
+                <div class="reach-bar reach-bar--high"></div>
+              </div>
+              <span class="reach-pct reach-pct--high">99,9 %</span>
+            </div>
+
+            <div class="reach-delta">
+              <span class="reach-delta-label">Der Unterschied</span>
+              <span class="reach-delta-value"><span class="reach-delta-amount">€100.000+</span> Jahresumsatz</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Slide 4: Die Lösung — 3 left : 3 right with icons -->
+    <section id="slide4" class="scroll-section"
+             data-enter="58" data-leave="100" data-animation="slide-left" data-persist="true">
+      <div class="slide-header">
+        <h2 class="section-heading">Echohaus AI übernimmt.</h2>
+        <p class="section-subline">Immer. Sofort. Präzise.</p>
+      </div>
+      <div class="slide-body">
+
+        <div class="slide-col slide-col-left">
+          <div class="features-list">
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong class="feature-name">Unbegrenzte Kapazität</strong>
+                <p class="feature-desc">Beliebig viele Gespräche gleichzeitig — niemand landet mehr <strong>in der Warteschleife</strong>.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong class="feature-name">24/7 Live-Präsenz</strong>
+                <p class="feature-desc">Nachts, Wochenenden, Feiertage: <strong>jeder Anruf</strong> wird sofort beantwortet.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 18v-6a9 9 0 0118 0v6"/>
+                  <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3z"/>
+                  <path d="M3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong class="feature-name">Souveräner KI-Rezeptionist</strong>
+                <p class="feature-desc"><strong>100 %</strong> der Anrufe professionell geführt — Ihr Team bleibt fokussiert.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="slide-col slide-col-right">
+          <div class="features-list">
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong class="feature-name">Automatische Terminbuchung</strong>
+                <p class="feature-desc">Freie Slots erkennen, vorschlagen und <strong>direkt</strong> per SMS oder E-Mail bestätigen.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong class="feature-name">Lead-Qualifizierung</strong>
+                <p class="feature-desc">Budget, Dringlichkeit, Anliegen — <strong>strukturiert erfasst</strong> und intelligent weitergeleitet.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong class="feature-name">Direktes CRM-Routing</strong>
+                <p class="feature-desc">Jedes Gespräch transkribiert und <strong>automatisch</strong> in Ihr CRM oder Kalender übertragen.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /#scroll-container -->
+
+  <!-- ══ SLIDE 5 — How It Works ══ -->
+  <section id="slide5" class="dark-section how-it-works">
+    <div class="dark-inner">
+      <div class="dark-eyebrow"><span class="eyebrow-dash"></span>SO FUNKTIONIERT'S</div>
+      <h2 class="dark-heading">In 3 Schritten zu<br>Ihrem KI-Agenten</h2>
+      <div class="steps-wrapper">
+        <div class="steps-track">
+          <div class="step-node">
+            <div class="step-circle">1</div>
+            <span class="step-icon">📅</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-node">
+            <div class="step-circle">2</div>
+            <span class="step-icon">⚙️</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-node">
+            <div class="step-circle">3</div>
+            <span class="step-icon">🚀</span>
+          </div>
+        </div>
+        <div class="steps-labels">
+          <div class="step-label">
+            <strong>Erstgespräch (30 Min)</strong>
+            <p>Wir analysieren Ihre Anforderungen — kostenlos und unverbindlich.</p>
+          </div>
+          <div class="step-label">
+            <strong>Konfiguration (48 Std)</strong>
+            <p>Anpassung an Ihre Prozesse und Systeme — vollständig betreut.</p>
+          </div>
+          <div class="step-label">
+            <strong>Go-Live &amp; Support</strong>
+            <p>Überwachung und kontinuierliche Optimierung Ihres Agenten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 6 — Calculator + Investment ══ -->
+  <section id="slide6" class="dark-section calc-section">
+    <div class="dark-inner calc-inner">
+
+      <!-- LEFT: Calculator -->
+      <div class="calc-col">
+        <div class="dark-eyebrow"><span class="eyebrow-dash"></span>KALKULATOR</div>
+        <h2 class="dark-heading">Rechnen Sie selbst</h2>
+        <p class="dark-sub">Was kosten verpasste Anrufe Ihr Geschäft?</p>
+
+        <div class="calc-fields">
+          <div class="calc-field">
+            <div class="calc-label-row">
+              <label>Verpasste Anrufe / Monat</label>
+              <span id="val-missed" class="calc-val">50</span>
+            </div>
+            <input type="range" id="slider-missed" min="0" max="200" value="50" class="calc-slider">
+          </div>
+          <div class="calc-field">
+            <label>Durchschnittlicher Auftragswert</label>
+            <div class="calc-input-wrap">
+              <span class="calc-currency">€</span>
+              <input type="number" id="input-value" value="500" min="0" class="calc-number-input">
+            </div>
+          </div>
+          <div class="calc-field">
+            <div class="calc-label-row">
+              <label>Conversion-Rate</label>
+              <span id="val-rate" class="calc-val">20 %</span>
+            </div>
+            <input type="range" id="slider-rate" min="0" max="50" value="20" class="calc-slider">
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-result-label">MONATLICHER UMSATZVERLUST</div>
+          <div id="result-monthly" class="calc-result-value">€5.000</div>
+          <div id="result-yearly" class="calc-result-yearly">Jährlicher Verlust: €60.000</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Investment -->
+      <div class="invest-col">
+        <div class="dark-eyebrow"><span class="eyebrow-dash"></span>INVESTITION</div>
+        <h2 class="dark-heading">Transparente<br>Investition</h2>
+        <p class="dark-sub">Keine versteckten Kosten. Keine Überraschungen.</p>
+
+        <div class="invest-basis">
+          <div class="invest-basis-col">
+            <div class="invest-basis-head">IHRE KOSTEN BASIEREN AUF:</div>
+            <ul>
+              <li>Monatliche Anrufanzahl</li>
+              <li>Einrichtungsaufwand (Systemintegration)</li>
+              <li>Anpassungen (Branchenspezifisch)</li>
+            </ul>
+          </div>
+          <div class="invest-basis-col">
+            <div class="invest-basis-head">RICHTWERT KLEINE BETRIEBE:</div>
+            <ul>
+              <li>Setup einmalig</li>
+              <li>Monatliche Lizenz</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="invest-table">
+          <div class="invest-row">
+            <span class="invest-item">Setup (einmalig)</span>
+            <span class="invest-price">€800 – €1.200</span>
+          </div>
+          <div class="invest-row">
+            <span class="invest-item">Monatlich</span>
+            <span class="invest-price">ab <strong class="invest-highlight">€290</strong> / Monat</span>
+          </div>
+        </div>
+
+        <p class="invest-fine">Kostenloses Beratungsgespräch – keine Verpflichtung, individuelle Angebote nach Ihren Anforderungen.</p>
+
+        <div class="invest-actions">
+          <button id="btn-demo" class="demo-btn">
+            <div class="shimmer-spark" aria-hidden="true">
+              <div class="shimmer-slide">
+                <div class="shimmer-spin"></div>
+              </div>
+            </div>
+            <span class="demo-btn-label">&#9654; Demo anhören</span>
+            <div class="demo-wave" aria-hidden="true">
+              <span class="bar b1"></span><span class="bar b2"></span>
+              <span class="bar b3"></span><span class="bar b4"></span>
+              <span class="bar b5"></span><span class="bar b6"></span>
+              <span class="bar b7"></span><span class="bar b8"></span>
+              <span class="bar b9"></span><span class="bar b10"></span>
+              <span class="bar b11"></span><span class="bar b12"></span>
+              <span class="bar b13"></span><span class="bar b14"></span>
+              <span class="bar b15"></span><span class="bar b16"></span>
+              <span class="bar b17"></span><span class="bar b18"></span>
+              <span class="bar b19"></span><span class="bar b20"></span>
+            </div>
+            <div class="shimmer-highlight" aria-hidden="true"></div>
+            <div class="shimmer-backdrop" aria-hidden="true"></div>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hidden audio element -->
+  <audio id="demo-audio" src="clideo_editor_fda441f3994e4e49994a85cf44fd4ba5.mp4" preload="none"></audio>
+
+  <!-- ══ SLIDE 7 — Frankfurt CTA ══ -->
+  <section id="slide7" class="dark-section cta-section">
+
+    <!-- Frankfurt skyline background SVG -->
+    <div class="frankfurt-skyline" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"
+           preserveAspectRatio="xMidYMax meet" fill="none"
+           stroke="#f4620a" stroke-width="1.5" opacity="0.22">
+        <line x1="0" y1="282" x2="1440" y2="282"/>
+        <rect x="20"  y="232" width="42" height="50"/>
+        <rect x="67"  y="215" width="36" height="67"/>
+        <rect x="108" y="226" width="48" height="56"/>
+        <rect x="180" y="196" width="52" height="86"/>
+        <rect x="237" y="207" width="42" height="75"/>
+        <rect x="308" y="152" width="32" height="130"/>
+        <polygon points="308,152 324,122 340,152"/>
+        <rect x="350" y="182" width="46" height="100"/>
+        <rect x="401" y="168" width="52" height="114"/>
+        <rect x="488" y="58"  width="56" height="224"/>
+        <polyline points="488,58 516,28 544,58"/>
+        <line x1="516" y1="28" x2="516" y2="14"/>
+        <rect x="448" y="138" width="36" height="144"/>
+        <rect x="553" y="122" width="48" height="160"/>
+        <rect x="607" y="148" width="42" height="134"/>
+        <rect x="660" y="92"  width="50" height="190"/>
+        <line x1="685" y1="92" x2="685" y2="72"/>
+        <rect x="722" y="124" width="44" height="158"/>
+        <polygon points="722,124 726,108 762,108 766,124"/>
+        <rect x="778" y="144" width="42" height="138"/>
+        <rect x="834" y="178" width="46" height="104"/>
+        <rect x="884" y="162" width="40" height="120"/>
+        <rect x="929" y="188" width="44" height="94"/>
+        <rect x="980" y="172" width="38" height="110"/>
+        <rect x="1040" y="202" width="36" height="80"/>
+        <rect x="1082" y="214" width="42" height="68"/>
+        <rect x="1130" y="196" width="52" height="86"/>
+        <rect x="1188" y="218" width="36" height="64"/>
+        <rect x="1230" y="224" width="44" height="58"/>
+        <rect x="1280" y="210" width="48" height="72"/>
+        <rect x="1334" y="228" width="38" height="54"/>
+        <rect x="1378" y="220" width="42" height="62"/>
+      </svg>
+    </div>
+
+    <!-- Main content -->
+    <div class="cta-outer">
+      <div class="dark-eyebrow cta-eyebrow"><span class="eyebrow-dash"></span>AUS FRANKFURT FÜR DEUTSCHLAND</div>
+
+      <div class="cta-card">
+        <h2 class="cta-heading">Bereit für fehlerfreie<br>Erreichbarkeit?</h2>
+        <p class="cta-sub">Kostenloses Erstgespräch — keine Verpflichtung.</p>
+        <p class="cta-24h">Wir melden uns innerhalb von 24 Stunden.</p>
+
+        <form class="cta-form">
+          <div class="cta-form-row">
+            <div class="cta-field">
+              <label>NAME</label>
+              <input type="text" name="name" placeholder="Max Mustermann" autocomplete="name" required>
+            </div>
+            <div class="cta-field">
+              <label>E-MAIL</label>
+              <input type="email" name="email" placeholder="max@firma.de" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="cta-field">
+            <label>TELEFON <span class="cta-optional">(OPTIONAL)</span></label>
+            <input type="tel" name="phone" placeholder="+49 69 XXXX XXXX" autocomplete="tel">
+          </div>
+          <div class="cta-field">
+            <label>NACHRICHT</label>
+            <textarea name="message" rows="4">Guten Tag, ich würde gerne ein Erstgespräch vereinbaren und mehr über Echohaus AI erfahren.
+
+Kurz zu meiner Situation: </textarea>
+          </div>
+          <button type="submit" class="cta-submit">Kontakt aufnehmen →</button>
+        </form>
+        <div id="form-status" class="form-status" aria-live="polite"></div>
+
+        <div class="cta-email-line">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
+          echohaus.ai@gmail.com
+        </div>
+      </div>
+
+      <div class="cta-footer-caption">ECHOHAUS AI GMBH · FRANKFURT AM MAIN</div>
+    </div>
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

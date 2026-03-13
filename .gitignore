@@ -1,0 +1,21 @@
+node_modules/
+.claude/
+temporary screenshots/
+frame-preview/
+screenshot.mjs
+screenshot-dark.mjs
+screenshot-scroll.mjs
+screenshot-slide7.mjs
+screenshot-sync.mjs
+serve.mjs
+package.json
+package-lock.json
+CLAUDE.md
+Bottom 1.png
+Bottom 2.png
+Bottom 3.png
+Bottom 4.png
+seperation_frame.png
+Mic_seperate.mp4
+Mix_vid_newest.mp4
+7bb263522d75b6111ff682831659a711_1772811273_pjaevth9.mp4
