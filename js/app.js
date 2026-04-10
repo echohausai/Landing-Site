@@ -619,9 +619,13 @@ function initPricingToggle() {
 
       const isYearly = btn.dataset.period === 'yearly';
 
-      // Minutes
-      document.querySelectorAll('.pf-minutes').forEach(el => {
-        el.textContent = isYearly ? el.dataset.yearly : el.dataset.monthly;
+      // Minutes — show crossed-out original, reveal yearly bonus
+      document.querySelectorAll('.pf-minutes-orig').forEach(el => {
+        el.classList.toggle('crossed', isYearly);
+      });
+      document.querySelectorAll('.pf-minutes-disc').forEach(el => {
+        if (isYearly) { el.style.display = 'inline'; }
+        else { el.style.display = 'none'; }
       });
 
       // Setup fees

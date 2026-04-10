@@ -61,6 +61,7 @@
     <nav class="nav-links">
       <a href="javascript:void(0)" data-scroll="slide4">Leistungen</a>
       <a href="javascript:void(0)" data-scroll="slide6">Demo</a>
+      <a href="javascript:void(0)" data-scroll="slide7">Preise</a>
       <a href="javascript:void(0)" data-scroll="slide8">Kontakt</a>
     </nav>
   </header>
@@ -459,42 +460,44 @@
         </div>
       </div>
 
-      <!-- RIGHT: Investment -->
+      <!-- RIGHT: Comparison -->
       <div class="invest-col">
-        <div class="dark-eyebrow"><span class="eyebrow-dash"></span>INVESTITION</div>
-        <h2 class="dark-heading">Transparente<br>Investition</h2>
-        <p class="dark-sub">Keine versteckten Kosten. Keine Überraschungen.</p>
+        <div class="dark-eyebrow"><span class="eyebrow-dash"></span>VERGLEICH</div>
+        <h2 class="dark-heading">Angestellter vs. Agent</h2>
+        <p class="dark-sub">Was kostet ein Angestellter wirklich — vs. was Sie ab heute zahlen.</p>
 
-        <div class="invest-basis">
-          <div class="invest-basis-col">
-            <div class="invest-basis-head">IHRE KOSTEN BASIEREN AUF:</div>
-            <ul>
-              <li>Monatliche Anrufanzahl</li>
-              <li>Einrichtungsaufwand (Systemintegration)</li>
-              <li>Anpassungen (Branchenspezifisch)</li>
-            </ul>
+        <div class="comp-table">
+          <div class="comp-header">
+            <div class="comp-metric-head"></div>
+            <div class="comp-col-head comp-col-head--neg"><span class="comp-col-icon">✗</span>Angestellter</div>
+            <div class="comp-col-head comp-col-head--pos"><span class="comp-col-icon">✓</span>KI-Agent</div>
           </div>
-          <div class="invest-basis-col">
-            <div class="invest-basis-head">RICHTWERT KLEINE BETRIEBE:</div>
-            <ul>
-              <li>Setup einmalig</li>
-              <li>Monatliche Lizenz</li>
-            </ul>
+          <div class="comp-row">
+            <div class="comp-metric">Monatliche Kosten</div>
+            <div class="comp-val comp-val--neg">€3.500+</div>
+            <div class="comp-val comp-val--pos">ab €179</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-metric">Verfügbarkeit</div>
+            <div class="comp-val comp-val--neg">Mo–Fr, 9–17 Uhr</div>
+            <div class="comp-val comp-val--pos">24/7, 365 Tage</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-metric">Einarbeitung</div>
+            <div class="comp-val comp-val--neg">4–8 Wochen</div>
+            <div class="comp-val comp-val--pos">24 Std. Setup</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-metric">Urlaub & Krankheit</div>
+            <div class="comp-val comp-val--neg">Ja</div>
+            <div class="comp-val comp-val--pos">Nein</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-metric">Skalierbarkeit</div>
+            <div class="comp-val comp-val--neg">Monate</div>
+            <div class="comp-val comp-val--pos">Sofort</div>
           </div>
         </div>
-
-        <div class="invest-table">
-          <div class="invest-row">
-            <span class="invest-item">Setup (einmalig)</span>
-            <span class="invest-price">€800 – €1.200</span>
-          </div>
-          <div class="invest-row">
-            <span class="invest-item">Monatlich</span>
-            <span class="invest-price">ab <strong class="invest-highlight">€290</strong> / Monat</span>
-          </div>
-        </div>
-
-        <p class="invest-fine">Kostenloses Beratungsgespräch – keine Verpflichtung, individuelle Angebote nach Ihren Anforderungen.</p>
 
         <div class="invest-actions">
           <button id="btn-demo" class="demo-btn">
@@ -567,7 +570,7 @@
           <ul class="pricing-features">
             <li><span class="pf-check">✓</span> 1 KI-Sprachagent</li>
             <li><span class="pf-check">✓</span> 1 Rufnummer inklusive</li>
-            <li><span class="pf-check">✓</span> <span class="pf-minutes" data-monthly="200" data-yearly="300">200</span> Minuten / Monat</li>
+            <li><span class="pf-check">✓</span> <span class="pf-minutes-orig" data-monthly="200">200</span><span class="pf-minutes-disc" data-yearly="300" style="display:none"> 300</span> Minuten / Monat</li>
             <li><span class="pf-check">✓</span> Standard-Gesprächsflow (Termine, FAQ, Leads)</li>
             <li><span class="pf-check">✓</span> Anrufaufnahmen & Transkripte</li>
             <li><span class="pf-check">✓</span> CRM-Integration</li>
@@ -593,7 +596,7 @@
           <ul class="pricing-features">
             <li><span class="pf-check">✓</span> Bis zu 2 KI-Sprachagenten</li>
             <li><span class="pf-check">✓</span> 2 Rufnummern inklusive</li>
-            <li><span class="pf-check">✓</span> <span class="pf-minutes" data-monthly="500" data-yearly="600">500</span> Minuten / Monat</li>
+            <li><span class="pf-check">✓</span> <span class="pf-minutes-orig" data-monthly="500">500</span><span class="pf-minutes-disc" data-yearly="600" style="display:none"> 600</span> Minuten / Monat</li>
             <li><span class="pf-check">✓</span> Individuelle Gesprächsflows mit Verzweigungen</li>
             <li><span class="pf-check">✓</span> Aufnahmen, Transkripte & Analytics</li>
             <li><span class="pf-check">✓</span> CRM-Integration</li>

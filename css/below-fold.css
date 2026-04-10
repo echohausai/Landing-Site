@@ -57,7 +57,7 @@
   display: grid;
   grid-template-columns: 1fr 1.08fr 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: center;
 }
 
 /* Base card */
@@ -83,9 +83,15 @@
 }
 .pricing-card--featured:hover { border-color: #f4620a; }
 
-/* Scale card */
+/* Scale card — premium enterprise blue-steel */
 .pricing-card--scale {
-  background: rgba(255,255,255,0.03);
+  background: linear-gradient(145deg, rgba(80,140,220,0.07) 0%, rgba(255,255,255,0.04) 100%);
+  border-color: rgba(100,160,255,0.25);
+  box-shadow: 0 0 32px rgba(80,140,220,0.06);
+}
+.pricing-card--scale:hover {
+  border-color: rgba(100,160,255,0.45);
+  box-shadow: 0 0 48px rgba(80,140,220,0.12);
 }
 
 .pricing-popular-badge {
@@ -153,6 +159,18 @@
   color: #5a6a7a;
 }
 .pricing-setup-disc {
+  color: #f4620a;
+  font-weight: 600;
+}
+
+.pf-minutes-orig {
+  transition: all 0.2s;
+}
+.pf-minutes-orig.crossed {
+  text-decoration: line-through;
+  color: #5a6a7a;
+}
+.pf-minutes-disc {
   color: #f4620a;
   font-weight: 600;
 }
@@ -508,6 +526,60 @@
   margin-bottom: 28px;
 }
 .invest-actions { gap: 0; }
+
+/* ── Comparison Table (Employee vs AI Agent) ─────────── */
+.comp-table {
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.comp-header {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+  padding: 14px 18px;
+  align-items: center;
+}
+.comp-metric-head { /* empty left spacer */ }
+.comp-col-head {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.comp-col-head--neg { color: #e05555; }
+.comp-col-head--pos { color: #3ecf72; }
+.comp-col-icon {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 3px;
+}
+.comp-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  padding: 13px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+}
+.comp-row:last-child { border-bottom: none; }
+.comp-row:nth-child(even) { background: rgba(255,255,255,0.02); }
+.comp-metric {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #8090a8;
+}
+.comp-val {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+}
+.comp-val--neg { color: #e05555; }
+.comp-val--pos { color: #3ecf72; }
 
 /* Full-width demo button */
 .demo-btn {
