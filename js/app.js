@@ -408,6 +408,7 @@ function initMobilePage() {
   initDarkSections();
   initCalculator();
   initDemoAudio();
+  initPricingToggle();
   initContactForm();
 }
 
@@ -449,6 +450,7 @@ function initPage() {
   initDarkSections();
   initCalculator();
   initDemoAudio();
+  initPricingToggle();
   initContactForm();
 
   // Resize
@@ -600,6 +602,50 @@ function initDemoAudio() {
   audio.addEventListener('ended', () => {
     label.textContent = '▶ Demo anhören';
     btn.classList.remove('playing');
+  });
+}
+
+/* ─────────────────────────────────────────────────────────
+   PRICING TOGGLE
+   ───────────────────────────────────────────────────────── */
+function initPricingToggle() {
+  const btns = document.querySelectorAll('.pricing-toggle-btn');
+  if (!btns.length) return;
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const isYearly = btn.dataset.period === 'yearly';
+
+      // Minutes
+      document.querySelectorAll('.pf-minutes').forEach(el => {
+        el.textContent = isYearly ? el.dataset.yearly : el.dataset.monthly;
+      });
+
+      // Setup fees
+      document.querySelectorAll('.pricing-setup-orig').forEach(el => {
+        el.classList.toggle('crossed', isYearly);
+      });
+      document.querySelectorAll('.pricing-setup-disc').forEach(el => {
+        if (isYearly) {
+          el.textContent = el.dataset.yearly;
+          el.style.display = 'inline';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Wire pricing CTA buttons to scroll to slide8 (contact)
+  document.querySelectorAll('.pricing-cta-btn[data-scroll]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(link.dataset.scroll);
+      if (target && lenis) lenis.scrollTo(target, { duration: 1.4, easing: (t) => 1 - Math.pow(1 - t, 3) });
+    });
   });
 }
 
