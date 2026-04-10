@@ -43,53 +43,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Loader ───────────────────────────────────────────── */
-#loader {
-  position: fixed;
-  inset: 0;
-  background: var(--white);
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.loader-brand {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--ink);
-}
-
-.loader-track {
-  width: 200px;
-  height: 1px;
-  background: var(--border);
-  position: relative;
-  overflow: hidden;
-}
-
-#loader-bar {
-  position: absolute;
-  top: 0; left: 0;
-  height: 100%;
-  width: 0%;
-  background: var(--ink);
-  transition: width 0.2s ease;
-}
-
-#loader-percent {
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--ink-faint);
-  min-width: 3ch;
-  text-align: center;
-}
 
 /* ── Fixed Navigation ─────────────────────────────────── */
 .site-header {
@@ -723,38 +676,92 @@ body {
 
 /* ── Mobile Responsive ────────────────────────────────── */
 @media (max-width: 768px) {
-  #hero { padding: 0 6vw; padding-top: 80px; }
 
+  /* ── Hide canvas system — desktop only ── */
+  #canvas-wrap { display: none; }
+
+  /* ── Scroll container: normal document flow on mobile ── */
+  #scroll-container {
+    height: auto;
+    position: static;
+  }
+
+  /* ── Scroll sections: visible static blocks ── */
+  .scroll-section {
+    position: static !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+    padding: 60px 6vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* ── Hero ── */
+  #hero {
+    padding: 100px 6vw 60px;
+    min-height: 100svh;
+  }
   .hero-inner { max-width: 100%; }
-
   .hero-heading {
-    font-size: clamp(2.8rem, 10vw, 4rem);
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
     line-height: 0.95;
   }
+  .hero-tagline { font-size: 1rem; }
+  .btn-primary  { width: 100%; text-align: center; }
+  .scroll-indicator { display: none; }
 
-  /* Collapse split columns on mobile */
-  .slide-body { flex-direction: column; }
+  /* ── Section headings ── */
+  .section-heading { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .section-subline  { font-size: 0.95rem; }
+  .slide-header { margin-bottom: 2rem; }
 
-  .slide-col-left, .slide-col-right {
-    padding-left: 4vw;
-    padding-right: 4vw;
-  }
+  /* ── Split columns → single column ── */
+  .slide-body { flex-direction: column; gap: 1.5rem; }
+  .slide-col-left,
+  .slide-col-right { padding: 0; width: 100%; }
 
-  #scroll-container { height: 250vh; }
+  /* ── Notif cards ── */
+  .cards-stack { gap: 1rem; }
+  .notif-card  { width: 100%; max-width: 100%; }
 
-  .section-heading {
-    font-size: clamp(2rem, 7vw, 2.8rem);
-  }
+  /* ── Stats ── */
+  .stat-number { font-size: clamp(2rem, 8vw, 3rem); }
+  .stat-desc   { max-width: none; }
 
-  .stat-number {
-    font-size: clamp(1.6rem, 6vw, 2.4rem);
-  }
+  /* ── Reach bars ── */
+  .reach-visual   { padding: 1.5rem; }
 
-  .notif-card { max-width: 100%; }
+  /* ── Features ── */
+  .features-list { gap: 0.75rem; }
+  .feature-item  { padding: 0.85rem; }
 
-  .stat-desc { max-width: none; }
+  /* ── Nav ── */
+  .nav-links  { display: none; }
+  .site-header { padding: 0 5vw; }
 
-  .nav-links { display: none; }
+  /* ── Dark sections (slides 5–7) ── */
+  .dark-section { padding: 60px 6vw; }
+
+  /* Slide 5: steps single column */
+  .steps-row    { flex-direction: column; gap: 2rem; align-items: flex-start; }
+  .step-line    { display: none; }
+  .steps-labels { grid-template-columns: 1fr; gap: 1.5rem; }
+  .step-label   { padding-left: 0; }
+
+  /* Slide 6: calculator + invest stack */
+  .slide6-inner { flex-direction: column; gap: 2rem; }
+  .calc-col,
+  .invest-col   { width: 100%; }
+  .demo-btn     { font-size: 0.9rem; min-height: 56px; }
+
+  /* Slide 7: CTA */
+  .cta-outer  { flex-direction: column; gap: 2rem; }
+  .cta-card   { width: 100%; padding: 2rem 1.5rem; }
+  .cta-form-row { flex-direction: column; gap: 0; }
+  .cta-field  { margin-bottom: 1rem; }
+
+  /* Frankfurt skyline shorter on mobile */
+  .frankfurt-skyline { height: 120px; }
 }
 
 /* ── Utility: prevent FOUC ────────────────────────────── */

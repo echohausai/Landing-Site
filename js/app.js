@@ -15,9 +15,6 @@ const FIRST_BATCH  = 12;    // frames to load before showing page
 let lenis; // assigned in initPage after initLenis()
 
 /* ── DOM References ───────────────────────────────────── */
-const loader       = document.getElementById('loader');
-const loaderBar    = document.getElementById('loader-bar');
-const loaderPct    = document.getElementById('loader-percent');
 const heroSection  = document.getElementById('hero');
 const canvasWrap   = document.getElementById('canvas-wrap');
 const canvas       = document.getElementById('canvas');
@@ -124,10 +121,6 @@ function loadFrame(i, onDone) {
       bgColor = sampleBgColor(img);
     }
 
-    const pct = Math.round((loadedCount / FRAME_COUNT) * 100);
-    loaderBar.style.width     = pct + '%';
-    loaderPct.textContent     = pct + '%';
-
     if (onDone) onDone();
   };
 
@@ -140,38 +133,24 @@ function loadFrame(i, onDone) {
 }
 
 function preloadFrames() {
-  const batchSize = Math.min(FIRST_BATCH, FRAME_COUNT);
-  let phase1Done  = 0;
-
-  for (let i = 0; i < batchSize; i++) {
-    loadFrame(i, () => {
-      phase1Done++;
-
-      // After first batch: init page
-      if (phase1Done === batchSize && !pageInited) {
-        pageInited = true;
-        initPage();
-
-        // Phase 2: background load
-        for (let j = batchSize; j < FRAME_COUNT; j++) {
-          loadFrame(j, () => {
-            if (loadedCount >= FRAME_COUNT) {
-              hideLoader();
-            }
-          });
-        }
-      }
-    });
+  // On mobile skip frame loading entirely — canvas is hidden
+  if (window.innerWidth <= 768) {
+    pageInited = true;
+    initPage();
+    return;
   }
-}
 
-function hideLoader() {
-  gsap.to('#loader', {
-    opacity: 0,
-    duration: 0.6,
-    ease: 'power2.out',
-    onComplete: () => { loader.style.display = 'none'; }
+  // Desktop: load frame 0 first so canvas has something to draw immediately,
+  // then kick off remaining frames in the background
+  loadFrame(0, () => {
+    if (!pageInited) {
+      pageInited = true;
+      initPage();
+    }
   });
+  for (let i = 1; i < FRAME_COUNT; i++) {
+    loadFrame(i, null);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -454,7 +433,22 @@ function onResize() {
    INIT PAGE
    Called after first batch of frames loaded
    ───────────────────────────────────────────────────────── */
+function initMobilePage() {
+  lenis = initLenis();
+  initNavScroll();
+  initDarkSections();
+  initCalculator();
+  initDemoAudio();
+  initContactForm();
+}
+
 function initPage() {
+  // Mobile: skip all canvas/GSAP animation — use simplified layout
+  if (window.innerWidth <= 768) {
+    initMobilePage();
+    return;
+  }
+
   gsap.registerPlugin(ScrollTrigger);
   setupCanvas();
 
