@@ -175,38 +175,7 @@ function initLenis() {
    Word-split stagger on load
    ───────────────────────────────────────────────────────── */
 function initHeroAnimation() {
-  const eyebrow  = heroSection.querySelector('.hero-eyebrow');
-  const words    = heroSection.querySelectorAll('.word');
-  const tagline  = heroSection.querySelector('.hero-tagline');
-  const cta      = heroSection.querySelector('.btn-primary');
-  const scrollInd = document.querySelector('.scroll-indicator');
-
-  const tl = gsap.timeline({ delay: 0.15 });
-
-  if (eyebrow) {
-    tl.from(eyebrow, {
-      y: 10, opacity: 0,
-      duration: 0.5, ease: 'power3.out'
-    });
-  }
-
-  tl.from(words, {
-    y: 70, opacity: 0,
-    stagger: 0.08,
-    duration: 0.9, ease: 'power3.out'
-  }, eyebrow ? '-=0.3' : '0')
-  .from(tagline, {
-    y: 24, opacity: 0,
-    duration: 0.65, ease: 'power3.out'
-  }, '-=0.4')
-  .from(cta, {
-    y: 16, opacity: 0,
-    duration: 0.5, ease: 'power3.out'
-  }, '-=0.3')
-  .from(scrollInd, {
-    y: 16, opacity: 0,
-    duration: 0.5, ease: 'power3.out'
-  }, '-=0.25');
+  // Hero content is visible immediately — no entrance animation
 }
 
 /* ─────────────────────────────────────────────────────────
