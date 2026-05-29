@@ -855,3 +855,24 @@
 }
 .form-status--ok  { color: rgba(255,255,255,0.9); }
 .form-status--err { color: rgba(255,120,100,0.9); }
+
+.legal-footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+.legal-footer-links a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.legal-footer-links a:hover,
+.legal-footer-links a:focus-visible {
+  color: rgba(255,255,255,0.8);
+  outline: none;
+}

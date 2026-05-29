@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz — Echohaus AI</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark-section: #0d1827;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Instrument Sans', sans-serif;
+      --text-primary: rgba(255,255,255,0.92);
+      --text-muted: rgba(255,255,255,0.55);
+      --accent: #f4620a;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--dark-section);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover, .back-link:focus-visible {
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-intro {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      color: var(--text-muted);
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    ul li { margin-bottom: 0.2rem; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 2.5rem 0;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+    }
+    footer a {
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+    }
+    footer a:hover { color: rgba(255,255,255,0.5); }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <a href="/" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Zurück
+    </a>
+
+    <h1>Datenschutzerklärung</h1>
+    <p class="page-intro">Wir nehmen den Schutz Ihrer persönlichen Daten ernst und halten uns an die Vorschriften der Datenschutz-Grundverordnung (DSGVO).</p>
+
+    <hr class="divider">
+
+    <h2>1. Verantwortlicher</h2>
+    <p>Johann Schrader<br>
+    EchoHaus AI<br>
+    Alsbacherstraße 35<br>
+    64404 Bickenbach<br>
+    E-Mail: echohaus.ai@gmail.com</p>
+
+    <h2>2. Erhobene Daten</h2>
+    <p><strong style="color:rgba(255,255,255,0.7)">Kontaktformular:</strong> Wenn Sie unser Kontaktformular nutzen, erheben wir Ihren Namen, Ihre E-Mail-Adresse und den Inhalt Ihrer Nachricht.</p>
+    <p><strong style="color:rgba(255,255,255,0.7)">Server-Logs:</strong> Beim Besuch unserer Website werden automatisch technische Daten erfasst: IP-Adresse, Datum und Uhrzeit des Zugriffs, abgerufene Seite sowie Browser- und Geräteinformationen.</p>
+
+    <h2>3. Zweck &amp; Rechtsgrundlage</h2>
+    <p>Die Verarbeitung der Kontaktformulardaten dient der Bearbeitung Ihrer Anfrage und der Anbahnung eines Vertragsverhältnisses (Art. 6 Abs. 1 lit. b DSGVO).</p>
+    <p>Die Verarbeitung der Server-Logdaten erfolgt zur technischen Bereitstellung und Sicherheit der Website auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+    <h2>4. Hosting</h2>
+    <p>Diese Website wird bei Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, USA) gehostet. Vercel verarbeitet dabei Server-Logdaten (u. a. IP-Adresse) in unserem Auftrag. Es besteht ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO. Eine Übermittlung personenbezogener Daten in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln (SCC).</p>
+
+    <h2>5. Speicherdauer</h2>
+    <p>Ihre Daten werden gelöscht, sobald der Zweck ihrer Verarbeitung entfällt. Server-Logs werden nach einer kurzen technischen Frist automatisch gelöscht. Kontaktanfragen werden nach abschließender Bearbeitung entfernt.</p>
+
+    <h2>6. Ihre Rechte</h2>
+    <p>Sie haben nach DSGVO (Art. 15–21) folgende Rechte gegenüber uns:</p>
+    <ul>
+      <li>Auskunft über Ihre gespeicherten Daten</li>
+      <li>Berichtigung unrichtiger Daten</li>
+      <li>Löschung Ihrer Daten</li>
+      <li>Einschränkung der Verarbeitung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerspruch gegen die Verarbeitung</li>
+    </ul>
+    <p>Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zur Ausübung Ihrer Rechte genügt eine formlose E-Mail an echohaus.ai@gmail.com.</p>
+
+    <footer>
+      <a href="/">Echohaus AI</a> &nbsp;·&nbsp; <a href="/impressum.html">Impressum</a>
+    </footer>
+
+  </div>
+</body>
+</html>
